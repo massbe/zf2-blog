@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Статьи</h1>
+
+<a href="/admin/article/add/">Добавить</a><br><br>
+<?php
+$flash = $this->flashMessenger();
+$flash->setMessageOpenFormat('
+    <div%s>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+    </button>
+    <ul><li>')
+    ->setMessageSeparatorString('</li><li>')
+    ->setMessageCloseString('</li></ul></div>');
+
+echo $flash->render('error', ['alert', 'alert-dismissable'], 'alert-danger');
+echo $flash->render('info', ['alert', 'alert-dismissable'], 'alert-info');
+echo $flash->render('default', ['alert', 'alert-dismissable'], 'alert-warning');
+echo $flash->render('success', ['alert', 'alert-dismissable'], 'alert-success');
+?>
+<table class="table table-striped table-hover ">
+    <tbody>
+    <tr>
+        <td>#</td>
+        <td>Id Категории</td>
+        <td>Название</td>
+        <td>Статья</td>
+        <td>Краткое описание статьи</td>
+        <td>Опубликовано</td>
+        <td>Действие</td>
+    </tr>
+    <?php
+
+    foreach ($articles as $item) {
+
+        $isPublished = $item->getIsPublic() ? 'Yes' : 'No';
+//        echo "<pre>";
+//        var_dump($category);
+//        echo "</pre>";
+
+        echo "<tr>
+                    <td>{$item->getId()}</td>
+                    <td>{$item->getCategory()->getCategoryName()}</td>
+                    <td>{$item->getTitle()}</td>
+                    <td>{$item->getArticle()}</td>
+                    <td>{$item->getShortArticle()}</td>
+                    <td>{$isPublished}</td>
+                    <td><a href={$this->url('admin/article', ['action' => 'edit', 'id' => $item->getId()])}>Редактировать</a>
+                    <a href={$this->url('admin/article', ['action' => 'delete', 'id' => $item->getId()])}>Удалить</a></td>
+                  </tr>";
+    }
+    ?>
+    </tbody>
+</table>
+
+<?php
+
+echo $this->paginationControl(
+    $articles,
+    'Sliding',
+    'pagination_control',
+    ['route' => 'admin/article']);
+
+?>
+
+
+</body>
+</html>
