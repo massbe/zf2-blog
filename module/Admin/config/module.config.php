@@ -12,12 +12,12 @@ return [
     'router' => [
         'routes' => [
             'admin' => [
-                'type'    => 'literal',
+                'type' => 'literal',
                 'options' => [
-                    'route'    => '/admin/',
+                    'route' => '/admin/',
                     'defaults' => [
                         'controller' => 'Admin\Controller\Index',
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
 
@@ -47,6 +47,54 @@ return [
                     ],
                 ],
             ],
+        ],
+    ],
+
+    'navigation' => [
+        'default' => [[
+            'label' => 'Главная',
+            'route' => 'home',
+        ],],
+
+        'admin_navigation' => [[
+            'label' => 'Панель навигации сайтом',
+            'route' => 'admin',
+            'action' => 'index',
+            'resource' => 'Admin\Controller\Index',
+
+            'pages' => [
+                [
+                    'label' => 'Статьи',
+                    'route' => 'admin/article',
+                    'action' => 'index',
+                ],
+
+                [
+                    'label' => 'Добавить статью',
+                    'route' => 'admin/article',
+                    'action' => 'add',
+                ],
+
+                [
+                    'label' => 'Категории',
+                    'route' => 'admin/category',
+                    'action' => 'index',
+                ],
+
+                [
+                    'label' => 'Добавить категорию',
+                    'route' => 'admin/category',
+                    'action' => 'add',
+                ],
+            ],
+        ],],
+
+    ],
+
+    'service_manager' => [
+        'factories' => [
+        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        'admin_navigation' => 'Admin\Lib\AdminNavigationFactory',
         ],
     ],
 

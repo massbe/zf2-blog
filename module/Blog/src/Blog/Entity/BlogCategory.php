@@ -24,13 +24,6 @@ class BlogCategory
     /**
      * @var string
      *
-     * @ORM\Column(name="category_key", type="string", length=100, nullable=false)
-     */
-    private $categoryKey;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="category_name", type="string", length=100, nullable=false)
      */
     private $categoryName;
@@ -45,30 +38,6 @@ class BlogCategory
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set categoryKey
-     *
-     * @param string $categoryKey
-     *
-     * @return BlogCategory
-     */
-    public function setCategoryKey($categoryKey)
-    {
-        $this->categoryKey = $categoryKey;
-
-        return $this;
-    }
-
-    /**
-     * Get categoryKey
-     *
-     * @return string
-     */
-    public function getCategoryKey()
-    {
-        return $this->categoryKey;
     }
 
     /**
@@ -98,7 +67,7 @@ class BlogCategory
     public function exchangeArray($data)
     {
         foreach ($data as $key => $val) {
-            if (property_exists($this, $key)) {
+            if(property_exists($this, $key)) {
                 $this->$key = $val ? $val : null;
             }
         }

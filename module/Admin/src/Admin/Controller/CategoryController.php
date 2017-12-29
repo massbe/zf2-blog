@@ -75,6 +75,7 @@ class CategoryController extends BaseController
             return $this->redirect()->toRoute('admin/category');
         }
 
+        //$form->setHydrator(new DoctrineHydrator($em, 'BlogArticle'));
         $form->bind($category);
 
         $request = $this->getRequest();
@@ -120,15 +121,16 @@ class CategoryController extends BaseController
         try {
             $repository = $em->getRepository('Blog\Entity\BlogCategory');
             $category = $repository->find($id);
+
             $em->remove($category);
             $em->flush();
+
         } catch (\Exception $e) {
             $status = 'error';
             $message = $e->getMessage();
         }
 
         $this->flashMessenger()->setNamespace($status)->addMessage($message);
-
         return $this->redirect()->toRoute('admin/category');
     }
 }

@@ -64,10 +64,10 @@ class BlogCategory extends \Blog\Entity\BlogCategory implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'id', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryKey', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryName');
+            return array('__isInitialized__', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'id', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryName');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'id', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryKey', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryName');
+        return array('__isInitialized__', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'id', '' . "\0" . 'Blog\\Entity\\BlogCategory' . "\0" . 'categoryName');
     }
 
     /**
@@ -186,28 +186,6 @@ class BlogCategory extends \Blog\Entity\BlogCategory implements \Doctrine\ORM\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
 
         return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCategoryKey($categoryKey)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCategoryKey', array($categoryKey));
-
-        return parent::setCategoryKey($categoryKey);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCategoryKey()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategoryKey', array());
-
-        return parent::getCategoryKey();
     }
 
     /**

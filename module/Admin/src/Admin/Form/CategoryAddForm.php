@@ -16,20 +16,6 @@ class CategoryAddForm extends Form
         $this->setAttribute('class', 'bs-example form-horizontal');
 
         $this->add([
-            'name' => 'categoryKey',
-            'type' => 'Text',
-            'options' => [
-                'min' => 3,
-                'max' => 100,
-                'label' => 'Ключ',
-            ],
-            'attributes' => [
-                'class' => 'form-control',
-                'required' => 'required',
-            ]
-        ]);
-
-        $this->add([
             'name' => 'categoryName',
             'type' => 'Text',
             'options' => [

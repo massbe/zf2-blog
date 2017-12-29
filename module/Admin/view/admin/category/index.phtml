@@ -20,7 +20,6 @@
     <tbody>
     <tr>
         <td>#</td>
-        <td>Ключ</td>
         <td>Название</td>
         <td>Действие</td>
     </tr>
@@ -29,7 +28,6 @@
         foreach ($category as $item) {
             echo "<tr>
                     <td>{$item->getId()}</td>
-                    <td>{$item->getCategoryKey()}</td>
                     <td>{$item->getCategoryName()}</td>
                     <td><a href={$this->url('admin/category', ['action' => 'edit', 'id' => $item->getId()])}>Редактировать</a>
                     <a href={$this->url('admin/category', ['action' => 'delete', 'id' => $item->getId()])}>Удалить</a></td>

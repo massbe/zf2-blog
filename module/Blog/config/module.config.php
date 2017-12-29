@@ -8,21 +8,6 @@ return array(
         ),
     ),
 
-//    'router' => array(
-//        'routes' => array(
-//            'blog' => array(
-//                'type'    => 'literal',
-//                'options' => array(
-//                    'route'    => '/blog',
-//                    'defaults' => array(
-//                        'controller' => 'Blog\Controller\Index',
-//                        'action'     => 'index',
-//                    ),
-//                ),
-//            ),
-//        ),
-//    ),
-
     'doctrine' => [
         'driver' => [
             'blog_entity' => [
@@ -43,7 +28,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'album' => __DIR__ . '/../view',
+            'blog' => __DIR__ . '/../view',
         ),
     ),
 );

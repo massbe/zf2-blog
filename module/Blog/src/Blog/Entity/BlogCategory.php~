@@ -24,13 +24,6 @@ class BlogCategory
     /**
      * @var string
      *
-     * @ORM\Column(name="category_key", type="string", length=100, nullable=false)
-     */
-    private $categoryKey;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="category_name", type="string", length=100, nullable=false)
      */
     private $categoryName;
